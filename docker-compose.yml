@@ -1,12 +1,11 @@
 version: '2'
 services:
   db:
-    image: postgres:latest
+    image: postgres
     volumes:
-      - "./.data/db:/var/lib/postgresql/data/pgdata"
+      - "./.data/db:/var/lib/postgresql"
     restart: always
     environment:
-      # MYSQL_ROOT_PASSWORD: wordpress
       POSTGRES_DB: wordpress
       POSTGRES_USER: wordpress
       POSTGRES_PASSWORD: wordpress
@@ -14,13 +13,18 @@ services:
   web:
     depends_on:
       - db
-    image: hnquang112:php7-laravel
-    # build: ./web
+    image: hnquang112/php7-laravel
+    volumes:
+      - "./src:/var/www/html"
     links:
       - db
     ports:
       - "8000:80"
     restart: always
-    # environment:
-    #   WORDPRESS_DB_HOST: db:3306
-    #   WORDPRESS_DB_PASSWORD: wordpress
+    environment:
+      DB_CONNECTION: psql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: homestead
+      DB_USERNAME: homestead
+      DB_PASSWORD: secret
