@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose run web php artisan "$@"
+docker-compose run --rm web php artisan "$@"
