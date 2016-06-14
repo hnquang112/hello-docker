@@ -18,7 +18,8 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y vim curl wget build-esse
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --force-yes php7.0 php7.0-dev php7.0-common php7.0-cgi php7.0-fpm php7.0-mysql php7.0-opcache php7.0-intl php7.0-gd php7.0-curl php7.0-mcrypt php7.0-imap php7.0-ldap php7.0-json
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --force-yes php7.0 php7.0-dev php7.0-common php7.0-cgi php7.0-fpm php7.0-mysql php7.0-opcache php7.0-intl php7.0-gd php7.0-curl php7.0-mcrypt php7.0-imap php7.0-ldap php7.0-json \
+	php7.0-pgsql
 
 # Install php-redis extension for php7
 # RUN git clone https://github.com/phpredis/phpredis.git
@@ -36,14 +37,13 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --force-yes php7.0 php7.
 # RUN ln -sf /etc/php/mods-available/memcached.ini /etc/php/7.0/cli/conf.d/20-memcached.ini
 
 # Install PHP extensions for Laravel
-RUN apt-get update && apt-get install -y \
-  git \
-  libfreetype6-dev \
-  # libjpeg62-turbo-dev \
-  libjpeg-turbo8-dev \
-  libmcrypt-dev \
-  libpng12-dev \
-  php7.0-pgsql
+# RUN apt-get update && apt-get install -y \
+#   libfreetype6-dev \
+#   # libjpeg62-turbo-dev \
+#   libjpeg-turbo8-dev \
+#   libmcrypt-dev \
+#   libpng12-dev
+  
   # && docker-php-ext-install -j$(nproc) iconv mcrypt mbstring pdo pdo_pgsql \
   # && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   # && docker-php-ext-install -j$(nproc) gd
