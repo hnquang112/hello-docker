@@ -5,10 +5,12 @@ services:
     volumes:
       - "./.data/db:/var/lib/postgresql"
     restart: always
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_DB: wordpress
-      POSTGRES_USER: wordpress
-      POSTGRES_PASSWORD: wordpress
+      POSTGRES_DB: base_skeleton
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: secret
 
   web:
     depends_on:
@@ -25,6 +27,6 @@ services:
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
-      DB_DATABASE: base
+      DB_DATABASE: base_skeleton
       DB_USERNAME: docker
       DB_PASSWORD: secret
