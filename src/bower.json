@@ -1,0 +1,22 @@
+{
+  "name": "Laravel Base Skeleton",
+  "description": "A Laravel skeleton for all kinds of apps",
+  "main": "",
+  "authors": [
+    "Ho Nhat Quang <hnquang112@yahoo.com.vn>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hnquang112/hello-docker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "twbs/bootstrap#^3.3.6",
+    "font-awesome": "^4.6.3",
+    "angular": "angular2#^1.5.6"
+  }
+}
