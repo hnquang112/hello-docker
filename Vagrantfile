@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
 	# config.vm.provision :docker
 	# config.vm.provision :docker_compose, rebuild: true, run: "always", yml: "/vagrant/docker-compose.yml"
 	config.vm.provision "shell", path: "bootstrap.sh"
-	config.vm.network :forwarded_port, guest: 80, host: 4567
+	config.vm.network :forwarded_port, guest: 8000, host: 4567
 
 	# Disable automatic box update checking. If you disable this, then
 	# boxes will only be checked for updates when the user runs
