@@ -66,12 +66,12 @@ RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
 RUN mkdir /run/php
 
 RUN mkdir -p        /var/www
-ADD ./default   	/etc/nginx/sites-available/default
+ADD ./default   		/etc/nginx/sites-available/default
 RUN mkdir           /etc/service/nginx
-ADD ./nginx.sh  	/etc/service/nginx/run
+ADD ./nginx.sh  		/etc/service/nginx/run
 RUN chmod +x        /etc/service/nginx/run
 RUN mkdir           /etc/service/phpfpm
-ADD ./phpfpm.sh 	/etc/service/phpfpm/run
+ADD ./phpfpm.sh 		/etc/service/phpfpm/run
 RUN chmod +x        /etc/service/phpfpm/run
 
 EXPOSE 80 443

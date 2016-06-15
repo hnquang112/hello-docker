@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "twbs/bootstrap#^3.3.6",
     "font-awesome": "^4.6.3",
-    "angular": "angular2#^1.5.6"
+    "angular": "angular2#^1.5.6",
+    "AdminLTE": "adminlte#^2.3.3"
   }
 }
