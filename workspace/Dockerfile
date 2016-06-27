@@ -73,6 +73,9 @@ RUN curl -s http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
     && echo "alias composer='/usr/local/bin/composer.phar'" >> ~/.bashrc
 
+# Install prestissimo plugin for composer
+RUN composer global require "hirak/prestissimo:^0.3"
+
 # Install mongodb extension
 RUN pecl install mongodb
 RUN echo "extension=mongodb.so" >> /etc/php/7.0/cli/php.ini

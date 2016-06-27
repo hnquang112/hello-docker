@@ -13,6 +13,6 @@ echo 'Install Docker Compose'
 sudo apt-get -y install python-pip
 sudo pip install docker-compose
 
-echo 'Pull Docker base images'
+# echo 'Pull Docker base images'
 # sudo docker pull postgres
 # sudo docker pull hnquang112/php7-laravel

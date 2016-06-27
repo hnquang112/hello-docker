@@ -14,10 +14,19 @@ Vagrant.configure(2) do |config|
 	# boxes at https://atlas.hashicorp.com/search.
 	config.vm.box = "ubuntu/wily64"
 	config.vm.hostname = "docker-host"
+	# config.vm.network :forwarded_port, guest: 8000, host: 4567
+	config.vm.network "private_network", ip: "192.168.33.10"
+	config.vm.synced_folder "../", "/vagrant"
+
+	config.vm.provider "virtualbox" do |vb|
+		vb.memory = "1024"
+	end
+
+	# Docker provisioner: https://github.com/leighmcculloch/vagrant-docker-compose
+	# Need to run "vagrant plugin install vagrant-docker-compose"
 	# config.vm.provision :docker
-	# config.vm.provision :docker_compose, rebuild: true, run: "always", yml: "/vagrant/docker-compose.yml"
-	config.vm.provision "shell", path: "bootstrap.sh"
-	config.vm.network :forwarded_port, guest: 8000, host: 4567
+	# config.vm.provision :docker_compose#, rebuild: true, run: "always", yml: "/vagrant/docker-compose.yml"
+	# config.vm.provision "shell", path: "bootstrap.sh"
 
 	# Disable automatic box update checking. If you disable this, then
 	# boxes will only be checked for updates when the user runs
