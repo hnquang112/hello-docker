@@ -22,6 +22,10 @@ Vagrant.configure(2) do |config|
 		vb.memory = "1024"
 	end
 
+	config.push.define "atlas" do |push|
+  		push.app = "hnquang112/vagrant-docker-compose"
+	end
+
 	# Docker provisioner: https://github.com/leighmcculloch/vagrant-docker-compose
 	# Need to run "vagrant plugin install vagrant-docker-compose"
 	# config.vm.provision :docker
