@@ -9,6 +9,7 @@ ENV LANGUAGE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 ENV LC_CTYPE=UTF-8
 ENV LANG=en_US.UTF-8
+ENV DISABLE_NOTIFIER=true
 ENV TERM xterm
 
 # Install "software-properties-common" (for the "add-apt-repository")
@@ -17,7 +18,8 @@ RUN apt-get update && apt-get install -y \
 
 # Add the "PHP 7" ppa
 RUN add-apt-repository -y \
-    ppa:ondrej/php
+    ppa:ondrej/php \
+    ppa:izx/askubuntu
 
 # Install PHP-CLI 7, some PHP extentions and some useful Tools with APT
 RUN apt-get update && apt-get install -y --force-yes \
@@ -49,7 +51,8 @@ RUN apt-get update && apt-get install -y --force-yes \
         nano \
         nodejs \
         nodejs-dev \
-        npm
+        npm \
+        libnotify-bin
 
 # Clean up, to free some space
 RUN apt-get clean
